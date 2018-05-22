@@ -1,0 +1,64 @@
+h1 {
+  font-size: 3rem;
+  /*font-family: 'Nanum Myeongjo', serif;*/
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+.start-end {
+  margin-top: 1rem;
+}
+
+.header_title {
+  margin: 2rem;
+}
+
+.vote_list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: stretch;
+}
+
+.vote_list_item {
+  position: relative;
+  width: 25%;
+  margin: 0.75rem;
+}
+
+.vote_img{
+  width: 100%;
+}
+
+.vote_list_text {
+  bottom: 0.5rem;
+  width: 100%;
+  position: absolute;
+  color: white;
+  opacity: 0.8;
+  margin-left: 0.5rem;
+}
+
+@media (max-width: 840px) {
+  .vote_list {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    align-content: stretch;
+  }
+
+  .vote_list_item {
+    width: 60%;
+  }
+}
