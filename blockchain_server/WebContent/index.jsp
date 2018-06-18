@@ -275,7 +275,7 @@
                     <!-- team-img -->
                     <div class="team-block">
                         <div class="team-img">
-                            <img src="https://easetemplate.com/free-website-templates/motion/images/team_member_1.jpg" alt="">
+                            <img src="./Resources/img/jaecheol1.jpg" alt="">
                             <div class="team-content">
                                 <h5 class="text-white mb0">심재철</h5>
                                 <h6 class="team-meta">홍익대학교<br/>컴퓨터공학과 12학번</h6>
@@ -283,7 +283,7 @@
                             <div class="overlay">
                                 <div class="text">
                                     <h6 class="mb0 text-white">심재철</h6>
-                                    <h6 class="mb30 team-meta">개발 및 팀장</h6>
+                                    <h6 class="mb30 team-meta">웹 백엔드 개발 담당</h6>
                                     
                                 </div>
                             </div>
@@ -295,7 +295,7 @@
                     <!-- team-img -->
                     <div class="team-block">
                         <div class="team-img">
-                            <img src="https://easetemplate.com/free-website-templates/motion/images/team_member_2.jpg" alt="">
+                            <img src="./Resources/img/kyoeun.jpg" alt="">
                             <div class="team-content">
                                 <h5 class="text-white mb0">손교은</h5>
                                 <h6 class="team-meta">홍익대학교<br/>컴퓨터공학과 12학번</h6>
@@ -303,8 +303,7 @@
                             <div class="overlay">
                                 <div class="text">
                                     <h6 class="mb0 text-white">손교은</h6>
-                                    <h6 class="mb30 team-meta">손교은</h6>
-                                    <h6>개발자다.</h6>
+                                    <h6 class="mb30 team-meta">블록체인 개발 담당</h6>
                                 </div>
                             </div>
                         </div>
@@ -315,7 +314,7 @@
                     <!-- team-img -->
                     <div class="team-block">
                         <div class="team-img">
-                            <img src="https://easetemplate.com/free-website-templates/motion/images/team_member_3.jpg" alt="" class="img-fluid">
+                            <img src="./Resources/img/youngjin.jpg" alt="" class="img-fluid">
                             <div class="team-content">
                                 <h5 class="text-white mb0">권영진</h5>
                                 <h6 class="team-meta">홍익대학교<br/> 컴퓨터공학과 12학번</h6>
@@ -323,7 +322,7 @@
                             <div class="overlay">
                                 <div class="text">
                                     <h6 class="mb0 text-white">권영진</h6>
-                                    <h6 class="mb30 team-meta">권영진은 인사팀이다.</h6>
+                                    <h6 class="mb30 team-meta">웹 프론트 엔드 개발 담당</h6>
                                    
                                 </div>
                             </div>
