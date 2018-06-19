@@ -22,9 +22,9 @@
 <div class="container">
     <div class="row">
 		<div class="well">
-        <h1 class="text-center">여기를 뭘로 수정하면 좋을까요?</h1>
+        <h1 class="text-center">현재 진행중인 전자 투표</h1>
         <div class="list-group">
-          <a href="./VoteDetails.jsp" class="list-group-item active">
+          <a href="./VoteDetails.jsp" class="list-group-item">
                 <div class="media col-md-3">
                     <figure class="pull-left">
                         <img class="media-object img-rounded img-responsive"  src="./Resources/img/total.png" alt="" >
@@ -39,6 +39,7 @@
                   <h2> 12424 <small>참여</small></h2>
                     <button type="button" class="btn btn-primary btn-lg btn-block">투표하기</button>
                     
+                    <!-- 
                      <div class="row">
 				        <div class="col-md-2 col-sm-4">
 				            <div class="progress blue">
@@ -63,8 +64,9 @@
 				            </div>
 				        </div>
 				    </div>
-                    
+                     -->
                 </div>
+                
           </a>
 	</div>
 	 <div class="list-group">
@@ -86,6 +88,7 @@
                     <h2> 12424 <small>참여</small></h2>
                     <button type="button" class="btn btn-primary btn-lg btn-block">투표하기</button>
                     
+                    <!-- 
                      <div class="row">
 				        <div class="col-md-2 col-sm-4">
 				            <div class="progress blue">
@@ -110,6 +113,7 @@
 				            </div>
 				        </div>
 				    </div>
+				     -->
                  </div>
          	 </a>
           </div>
@@ -130,31 +134,7 @@
                    <h2> 12424 <small>참여</small></h2>
                     <button type="button" class="btn btn-primary btn-lg btn-block">투표하기</button>
                     
-                     <div class="row">
-				        <div class="col-md-2 col-sm-4">
-				            <div class="progress blue">
-				                <span class="progress-left">
-				                    <span class="progress-bar"></span>
-				                </span>
-				                <span class="progress-right">
-				                    <span class="progress-bar"></span>
-				                </span>
-				                <div class="progress-value">90%</div>
-				            </div>
-				        </div>
-				        <div class="col-md-2 col-sm-4">
-				            <div class="progress yellow">
-				                <span class="progress-left">
-				                    <span class="progress-bar"></span>
-				                </span>
-				                <span class="progress-right">
-				                    <span class="progress-bar"></span>
-				                </span>
-				                <div class="progress-value">75%</div>
-				            </div>
-				        </div>
-				    </div>
-                    
+                  
                 </div>
                 
          	 </a>

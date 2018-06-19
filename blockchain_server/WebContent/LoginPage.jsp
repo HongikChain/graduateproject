@@ -12,7 +12,7 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <link href="./Resources/css/LoginPage.css" rel="stylesheet"/>
 <script src="./Resources/js/LoginPage.js"> </script>
-
+<script src="./Resources/js/custom_web3.js"></script>
 </head>
 <body>
 
@@ -78,27 +78,28 @@
 								</form>
 								<form id="register-form" action="http://localhost:8181/blockchain_server/register.do" method="post" role="form" style="display: none;">
 									<div class="form-group">
-										<input type="text" name="id"  tabindex="1" class="form-control" placeholder="아이디" value="">
+										<input type="text" id="id" name="id"  tabindex="1" class="form-control" placeholder="아이디" value="">
 									</div>
 									<div class="form-group">
-										<input type="password" name="password" tabindex="2" class="form-control" placeholder="패스워드" value="">
+										<input id="password" type="password" name="password" tabindex="2" class="form-control" placeholder="패스워드" value="" >
 									</div>
 									<div class="form-group">
-										<input type="text" name="name" tabindex="3" class="form-control" placeholder="이름">
+										<input type="text" id="name" name="name" tabindex="3" class="form-control" placeholder="이름">
 									</div>
 									<div class="form-group">
-										<input type="text" name="major" tabindex="4" class="form-control" placeholder="전공">
+										<input type="text" id="major" name="major" tabindex="4" class="form-control" placeholder="전공">
 									</div>
 									<div class="form-group">
-										<input type="text" name="grade" tabindex="5" class="form-control" placeholder="학년">
+										<input type="text" id="grade" name="grade" tabindex="5" class="form-control" placeholder="학년">
 									</div>
 									<div class="form-group">
-										<input type="text" name="phone" tabindex="6" class="form-control" placeholder="연락처">
+										<input type="text" id="phone" name="phone" tabindex="6" class="form-control" placeholder="연락처">
 									</div>
+									
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-6 col-sm-offset-3">
-												<input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Register Now">
+												<input onclick="makeAccount()" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Register Now">
 											</div>
 										</div>
 									</div>

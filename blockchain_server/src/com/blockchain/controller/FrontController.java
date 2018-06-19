@@ -71,7 +71,10 @@ public class FrontController extends HttpServlet {
 			session = req.getSession();
 			session.invalidate();
 			viewpage = "index.jsp";
+		}else if(command.equals("/vote.do")) {
+			System.out.println("투표가 실행됨");
 		}
+		
 		RequestDispatcher rd = req.getRequestDispatcher(viewpage);
 		rd.forward(req, resp);
 	}

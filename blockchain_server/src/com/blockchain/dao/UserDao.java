@@ -21,7 +21,7 @@ public class UserDao {
 	Statement statement;
 	ResultSet resultSet;
 	String sql;
-	String id,password,name,major,phone;
+	String id,password,name,major,phone,account;
 	int grade;
 	private static UserDao dao; //싱글톤 패턴 적용
 	
@@ -48,13 +48,14 @@ public class UserDao {
 	 * 데이터베이스에 부하를 적게 주며, 속도도 더 빠르다.
 	 * */
 	public int register(MemberDto dto) {
-		sql = "insert into bc_member (id,password,name,major,grade,phone) values(?, ?, ?, ?, ?, ?);";
+		sql = "insert into bc_member (id,password,name,major,grade,phone,account) values(?, ?, ?, ?, ?, ?,?);";
 		id = dto.getId();
 		password = dto.getPassword();
 		name = dto.getName();
 		major = dto.getMajor();
 		grade = dto.getGrade();
 		phone = dto.getPhone();
+		account = dto.getAccount();
 			try {
 				connection = datasource.getConnection();
 				pstatement = connection.prepareStatement(sql);
@@ -64,6 +65,7 @@ public class UserDao {
 				pstatement.setString(4,major);
 				pstatement.setInt(5,grade);
 				pstatement.setString(6,phone);
+				pstatement.setString(7, account);
 				pstatement.execute();
 				return 1; //성공적 회원가입.
 			}catch(Exception e) {
@@ -98,7 +100,8 @@ public class UserDao {
 				String major = resultSet.getString(4);
 				int grade = resultSet.getInt(5);
 				String phone = resultSet.getString(6);
-				memberdto = new MemberDto(id,password,name,major,grade,phone);
+				String account = resultSet.getString(7);
+				memberdto = new MemberDto(id,password,name,major,grade,phone,account);
 				return memberdto; //회원이 존재 하는 경우
 			}
 		}catch(Exception e) {

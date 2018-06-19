@@ -17,8 +17,6 @@ public class Login_Command implements Command_Interface {
 			dao = UserDao.getInstance();
 			String id = req.getParameter("id");
 			String password =req.getParameter("password");
-			System.out.println(id);
-			System.out.println(password);
 			try {
 				isSuccess = dao.login(id, password);
 			}catch(Exception e) {
