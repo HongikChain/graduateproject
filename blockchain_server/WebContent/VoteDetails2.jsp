@@ -1,94 +1,20 @@
 <%@page import="com.blockchain.dto.MemberDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  
-	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-	<link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-  	<link rel="stylesheet" href="./Resources/css/votepage_Details2.css?ver=1">
- 
-  	<script src="./Resources/js/vote.js"></script>
-	<script src="./Resources/js/ethereumjs-tx-1.3.3.min.js"></script>
-	<script type="text/javascript">
-
-	  $(document).ready(function() {
-	    $('.prev').click(function() {
-	      $('.list').stop().animate({
-	        'margin-left': '-1300px'
-	      }, function() {
-	        $('.list li:first-child').appendTo('.list');
-	        $('.list').css({
-	          'margin-left': '-650px'
-	        });
-	      });
-	    });
-	    $('.next').click(function() {
-	      $('.list').stop().animate({
-	        'margin-left': '0px'
-	      }, function() {
-	        $('.list li:last-child').prependTo('.list');
-	        $('.list').css({
-	          'margin-left': '-650px'
-	        });
-	      });
-	    });
-
-	    var list_a = [contents1, contents2, contents3];
-	    var i = 0;
-	    $('.prev').click(function(){
-	        i-=1;
-	        if(i==-1){
-	          i=2;
-	        }
-	        $('#tab_contents>li').hide();
-	        $(list_a[i]).show();
-	      });
-
-
-	    $('.next').click(function(){
-	        i+=1;
-	        i=i%3;
-					$('#tab_contents>li').hide();
-					$(list_a[i]).show();
-				});
-	    });
-	  
-		$(document).ready(function(){
-			var voteform = document.getElementById('vote_form');
-			var votefinish = document.getElementById('vote_finish');
-			votefinish.style.display = "none";
-			
-			//<a href="#"><i class="ion-ios-home"></i></a><a href="#"><i class="ion-ios-email"></i></a><a href="#"><i class="ion-ios-telephone"></i></a>
-		});
-
-		$(function(){
-			$('#detail_text1').click(function(e){
-				$('#tab_contents>li').hide();
-				$('#contents1').show();
-			});	
-		});
-		$(function(){
-			$('#detail_text2').click(function(e){
-				$('#tab_contents>li').hide();
-				$('#contents2').show();
-			});	
-		});
-		$(function(){
-			$('#detail_text3').click(function(e){
-				$('#tab_contents>li').hide();
-				$('#contents3').show();
-			});	
-		});
-	</script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="Resources/css/votepage_Details2.css?ver=1.1">
+  <title>Document</title>
 </head>
+<script>
+</script>
 <body>
-	
   <div>
     <%@ include file="/navbar.jsp" %>
   </div>
@@ -124,7 +50,7 @@
 
 <div class="tab_container">
   <ul id="tab_contents">
-    <li id="contents1"> <h1>제 24회 컴퓨터공학과 임원 선출</h1> </li>
+    <li id="contents1"> <h1>제 24회 컴퓨터공학과 임원 선출 ㅁㄴㅇㄻㄴㅇㄹ</h1> </li>
     <li id="contents2">
       <div class="vote_detail_text">
         <div style="text-align: center">
@@ -181,7 +107,7 @@
 <div class="vote_clear">
 </div>
 <div class="vote_container2">
-  <div class="do_vote">
+  <div class="do_vote" >
     <div style="display: block;">
       <h1><br></h1>
     </div>
@@ -210,25 +136,25 @@
     </div>
    </div>
    
-	<div id="vote" class="container center-block">
-			<div class="row text-center">
-				<form class="center-block" id="vote_form" method="get" action="./vote.do"> 
+</div>
+	<div class="row text-center" style="margin-bottom:30px;">
+				<form id="vote_form" method="get" action="./vote.do"> 
 					<h1>투표하기</h1>
 						<h3>원하시는 후보를 선택해주세요</h3>
 							<div class="select">
-					            <div class="col-md-6 center-block">
+					            <div class="col-md-4">
 					              <h3><b>후보 1</b></h3>
-						            <label>
-											<input class="radio center-block" type="radio" name="who" value="1">
+						            <label class="radio">
+											<input type="radio" name="who" value="1">
 											<span class="checkround"></span>
 									</label>
 					            </div>
-					            <div class="col-md-6 center-block">
+					            <div class="col-md-4">
 					              <h3><b>후보 2</b></h3>
-					              <label>
-													<input class="radio center-block" type="radio" name="who" value="2">
+					              <label class="radio">
+													<input type="radio" name="who" value="2">
 													<span class="checkround"></span>
-											</label>
+												</label>
 					            </div>
 							</div>
 							<div class="buttonBox">
@@ -236,25 +162,9 @@
 										MemberDto memberdto = (MemberDto)session.getAttribute("memberdto");
 										int gradenum = Integer.parseInt(memberdto.getId().substring(1, 7));
 									%>
-								<button onclick="vote('<%=gradenum%>');" class="btn cust-btn" type="button" id="votebtn" style="font-size: 20PX;letter-spacing: 1px; ">투표하기</button>
-											
+								<button onclick="vote('<%=gradenum%>');" class="btn cust-btn" type="button" id="votebtn" style="font-size: 20PX;letter-spacing: 1px;">투표하기</button>			
 							</div>	
 					</form>
 						
 			</div>
-		</div>
-		<div id="vote_finish" class="container">
-			    <div class="center-block" style="text-align:center; ">
-   						 <br/>
-   						 <div><b>투표가 거의 완료 되었습니다.</b></div>
-			    </div>
-			    
-			    <div class="result_text" style="text-align:center; padding-top:30px;">
-			    	<b><h3 id="description" onclick="show_trx();"><</h3></b>
-			    	<br/>
-			    	<b><div id="tranx"></div></b>   	
-			    </div>
-		</div>
 </body>
-</html>
-

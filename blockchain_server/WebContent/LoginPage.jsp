@@ -11,8 +11,8 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <link href="./Resources/css/LoginPage.css" rel="stylesheet"/>
-<script src="./Resources/js/LoginPage.js"> </script>
-<script src="./Resources/js/custom_web3.js"></script>
+<script src="./Resources/js/LoginPage.js?ver=1.2"> </script>
+<script src="https://smtpjs.com/v2/smtp.js"> </script>
 </head>
 <body>
 
@@ -76,9 +76,11 @@
 										</div>
 									</div>
 								</form>
-								<form id="register-form" action="http://localhost:8181/blockchain_server/register.do" method="post" role="form" style="display: none;">
+								<form id="register-form"  method="post" role="form" style="display: none;">
 									<div class="form-group">
-										<input type="text" id="id" name="id"  tabindex="1" class="form-control" placeholder="아이디" value="">
+										<input type="text" id="id" name="id"  tabindex="1" class="form-control" placeholder="이메일" value="">
+										<input type="text" id="authcode" placeholder="인증 코드"/>
+										<input type="button" id="emailbutton" value="인증"/>
 									</div>
 									<div class="form-group">
 										<input id="password" type="password" name="password" tabindex="2" class="form-control" placeholder="패스워드" value="" >
@@ -99,7 +101,7 @@
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-6 col-sm-offset-3">
-												<input onclick="makeAccount()" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Register Now">
+												<input onclick="submit_check();" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Register Now">
 											</div>
 										</div>
 									</div>

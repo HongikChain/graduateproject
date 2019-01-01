@@ -7,10 +7,9 @@ public class MemberDto {
 	String major;
 	int grade;
 	String phone;
-	String account;
 	
 	
-	public MemberDto(String id, String password, String name, String major, int grade, String phone, String account) {
+	public MemberDto(String id, String password, String name, String major, int grade, String phone) {
 		super();
 		this.id = id;
 		this.password = password;
@@ -18,7 +17,6 @@ public class MemberDto {
 		this.major = major;
 		this.grade = grade;
 		this.phone = phone;
-		this.account = account;
 	}
 	public String getId() {
 		return id;
@@ -55,12 +53,6 @@ public class MemberDto {
 	}
 	public void setPhone(String phone) {
 		this.phone = phone;
-	}
-	public String getAccount() {
-		return account;
-	}
-	public void setAccount(String account) {
-		this.account = account;
 	}
 	
 }

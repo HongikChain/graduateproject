@@ -14,7 +14,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="./Resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
+	<script src="http://shahzad.com/myapp/web3.js-1.0.0-beta.34/dist/web3.min.js"></script>
     <!-- Custom fonts for this template -->
     <link href="./Resources/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
@@ -31,32 +31,7 @@
   <body id="page-top">
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-      <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top" style="font-size:large;">
-			홍익전자선관위</a>
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <% 
-              	String status = (String)session.getAttribute("login");
-              	if(status == null) //아직 로그인한 상태가 아니라면
-              		out.println("<a class='nav-link js-scroll-trigger' href='LoginPage.jsp'>Log in</a>");
-              	else if(status.equals("success")){//로그인 상태면
-              		out.println("<a class='nav-link js-scroll-trigger' href='./logout.do'>Log out</a>");
-              	}
-              %>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#aboutus">About Us</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+    <%@ include file="/navbar.jsp" %>
 
     <header class="masthead text-center text-white d-flex">
       <div class="container my-auto">

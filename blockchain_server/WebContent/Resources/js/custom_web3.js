@@ -14,26 +14,54 @@ $(document).ready(function(){
 		 web3.eth.defaultAccount = web3.eth.accounts[1];
 });
 
-function getVoteRate(){
-	var candidate1 = web3.eth.accounts[10];
-	var candidate2 = web3.eth.accounts[11];
-	var candidate3 = web3.eth.accounts[12];
+function getVoteRate(transhash){
 	
+	var candidate1 = web3.eth.accounts[13];
+	var candidate2 = web3.eth.accounts[14];
+	var candidate3 = web3.eth.accounts[15];
+
 	var ether1 = web3.fromWei(web3.eth.getBalance(candidate1));
 	var ether2 = web3.fromWei(web3.eth.getBalance(candidate2));
 	var ether3 = web3.fromWei(web3.eth.getBalance(candidate3));
-	
 	ether1 = parseInt(ether1);
 	ether2 = parseInt(ether2);
 	ether3 = parseInt(ether3);
+	var voterate1 = document.getElementById('voterate1');
+	var voterate2 = document.getElementById('voterate2');
+	var voterate3 = document.getElementById('voterate3');
+	voterate1.innerHTML = "<p>후보1 득표수 : "+ether1+"</p>";
+	voterate2.innerHTML = "<p>후보2 득표수 : "+ether2+"</p>";
+	voterate3.innerHTML = "<p>후보3 득표수 : "+ether3+"</p>";
 	
-	alert(ether1);
-	alert(ether2);
-	alert(ether3);
 	
 	
 	
 	
+	//3초마다 득표수 업데이트.
+	setInterval(function(){
+		
+		var ether1 = web3.fromWei(web3.eth.getBalance(candidate1));
+		var ether2 = web3.fromWei(web3.eth.getBalance(candidate2));
+		var ether3 = web3.fromWei(web3.eth.getBalance(candidate3));
+		ether1 = parseInt(ether1);
+		ether2 = parseInt(ether2);
+		ether3 = parseInt(ether3);
+		var transaction = web3.eth.getTransaction(transhash);
+		var voterate1 = document.getElementById('voterate1');
+		var voterate2 = document.getElementById('voterate2');
+		var voterate3 = document.getElementById('voterate3');
+		var result = web3.eth.getBlock(transaction.blockNumber);
+		voterate1.innerHTML = "<p>후보1 득표수 : "+ether1+"</p>";
+		voterate2.innerHTML = "<p>후보2 득표수 : "+ether2+"</p>";
+		voterate3.innerHTML = "<p>후보3 득표수 : "+ether3+"</p>";
+		document.getElementById("description").innerHTML = "현재 트랜잭션이 포함된 블록 헤더 정보";
+		document.getElementById("blocknumber").innerHTML = "<p>블록 넘버 : "+result.number+"</p>";
+		document.getElementById("timestamp").innerHTML = "<p>타임스탬프 : "+result.timestamp+"</p>";
+		document.getElementById("hash").innerHTML = "<p>블록 해쉬값 : "+result.hash+"</p>";
+		document.getElementById("nonce").innerHTML = "<p>넌스 : "+result.nonce+"</p>";	
+	  	document.getElementById("transaction").innerHTML = "<p>트랜잭션 해쉬값 : "+transhash+"</p>";
+	}, 3000);
+
 }
 
 function doVote(account,password){
@@ -42,7 +70,7 @@ function doVote(account,password){
 	var voteform = document.getElementById('vote_form');
 	var votefinish = document.getElementById('vote_finish');
 	var radio_value;
-	var value = web3.toWei('0.00001', 'ether');
+	var value = web3.toWei('1', 'ether');
 	
 	for(var i=0; i<radio.length; i++) {
 	    if(radio[i].checked) {
@@ -55,30 +83,31 @@ function doVote(account,password){
 	voteform.style.display="none";
 	votefinish.style.display = "block";
 	web3.personal.unlockAccount(account, password, 0);
+	var transhash;
 	if(radio_value == 1){
 		//account -> 1번 후보에게 이더 전송
-		web3.eth.sendTransaction({
+		transhash = web3.eth.sendTransaction({
 			from : account,
-			to : web3.eth.accounts[8],
+			to : web3.eth.accounts[13],
 			value : value
 		});
 	}else if(radio_value == 2){
 		//account -> 2번 후보
-		web3.eth.sendTransaction({
+		transhash = web3.eth.sendTransaction({
 			from : account,
-			to : web3.eth.accounts[9],
+			to : web3.eth.accounts[14],
 			value : value
 		});
 	}else if(radio_value == 3){
 		//account -> 3번 후보
-		web3.eth.sendTransaction({
+		transhash = web3.eth.sendTransaction({
 			from : account,
-			to : web3.eth.accounts[10],
+			to : web3.eth.accounts[15],
 			value : value
 		});
 	}
 	
-	getVoteRate();
+	getVoteRate(transhash);
 	
 }
 
@@ -178,9 +207,10 @@ function stopWatch() {
 	document.getElementById("hash").innerHTML = result.hash;
 	document.getElementById("nonce").innerHTML = result.nonce;	
   	document.getElementById("transaction").innerHTML =result.transactions;
-	
 }
 
 function maketran(){
 	trans = web3.eth.sendTransaction({from:web3.eth.accounts[2],to:web3.eth.accounts[1],value:web3.toWei(1,"ether")});   
 }
+
+

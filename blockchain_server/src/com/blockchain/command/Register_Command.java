@@ -24,9 +24,8 @@ public class Register_Command implements Command_Interface {
 		String major = req.getParameter("major");
 		int grade = Integer.parseInt(req.getParameter("grade"));
 		String phone = req.getParameter("phone");
-		String account = req.getParameter("account");
 		
-		memberdto = new MemberDto(id,password,name,major,grade,phone,account);
+		memberdto = new MemberDto(id,password,name,major,grade,phone);
 		
 		dao = UserDao.getInstance();
 		
